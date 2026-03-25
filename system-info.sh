@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OUTPUT="system_info.sh"  # file the script will write to
+OUTPUT="system_info.txt"  # file the script will write to
 
 {
 echo "#!/bin/bash"
