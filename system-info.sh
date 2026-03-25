@@ -1,11 +1,8 @@
 #!/bin/bash
 
-OUTPUT="system_info.txt"  # file the script will write to
+OUTPUT="system_info.txt"
 
 {
-echo "#!/bin/bash"
-echo "# System Information Report"
-
 echo "----- System Hostname -----"
 hostname
 
@@ -31,8 +28,7 @@ echo "----- Filesystem Utilization -----"
 df -hT
 
 echo "----- Last 5 Error Logs -----"
-grep -i "error" /var/log/syslog | tail -n 5
-
+grep -i "error" /var/log/syslog | tail -n 5 2>/dev/null || echo "No syslog found"
 } > "$OUTPUT"
 
 echo "System info saved to $OUTPUT"
